@@ -116,7 +116,7 @@ class Juri {
 }
 
 class Concurso {
-    private String nome_concurso;
+    private String nome_concurso;   
     private Candidato[] vetor_candidato;
     private Juri[] vetor_juri;
 
