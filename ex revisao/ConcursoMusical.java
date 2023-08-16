@@ -126,6 +126,7 @@ class Concurso {
         this.vetor_juri = vetor_juri;
     }
 
+
     public void filtragenero(String genero){
         System.out.println("Candidatos com o genero musical de " + genero + ":");
         for (Candidato candidato  : vetor_candidato){

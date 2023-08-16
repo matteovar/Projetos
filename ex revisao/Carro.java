@@ -1,20 +1,20 @@
 import java.util.Scanner;
 
 class automovel {
-  private String modelo;
+  private String placa;
   private String marca;
   private int ano;
   private float preco;
   
-  public automovel(String modelo, String marca, int ano, float preco) {
-    this.modelo = modelo;
+  public automovel(String placa, String marca, int ano, float preco) {
+    this.placa = placa;
     this.marca = marca;
     this.ano = ano;
     this.preco = preco;
   }
 
-  public String getmodelo(){
-    return modelo;
+  public String getplaca(){
+    return placa;
   }
 
   public String getmarca(){
@@ -29,8 +29,8 @@ class automovel {
     return preco;
   }
 
-  public void setmodelo(String modelo){
-    this.modelo = modelo;
+  public void setplaca(String placa){
+    this.placa = placa;
   }
 
   public void setmarca(String marca){
@@ -47,7 +47,7 @@ class automovel {
 
   @Override
   public String toString(){
-    return "Modelo: " + this.modelo + ", Marca: " + this.marca + ", Ano: " + this.ano + ", Preco: " + this.preco ;
+    return "Placa: " + this.placa + ", Marca: " + this.marca + ", Ano: " + this.ano + ", Preco: " + this.preco ;
   }
     
 }
@@ -69,8 +69,8 @@ class Principal {
         for (int i = 0; i < numCarros; i++) {
             System.out.println("Digite os dados do carro " + (i + 1) + ":");
 
-            System.out.print("Modelo: ");
-            String modelo = scanner.nextLine();
+            System.out.print("Placa: ");
+            String placa = scanner.nextLine();
 
             System.out.print("Marca: ");
             String marca = scanner.nextLine();
@@ -82,42 +82,42 @@ class Principal {
             float preco = scanner.nextFloat();
             scanner.nextLine();
 
-            System.out.print("\n");
-            
-            carros[quantidadeCarros] = new automovel(modelo, marca, ano, preco);
+            System.out.println();
+
+            carros[quantidadeCarros] = new automovel(placa, marca, ano, preco);
             quantidadeCarros++;
 
             somapreco += preco;
         }
 
-        System.out.println("-----------------------------");
+        System.out.println("Dado dos Carros");
+        for (int i = 0; i < quantidadeCarros; i++) {
+            System.out.println(carros[i].toString());
+        }
 
-        System.out.print("Digite a marca de carros que deseja ver os modelos: ");
+        System.out.print("\nDigite a marca de carros que deseja ver os modelos: ");
         String filtro = scanner.nextLine();
 
-        System.out.println("Carros da marca " + filtro + ":");
+        System.out.println("\nCarros da marca " + filtro + ":");
         boolean encontrouCarro = false;
         for (int p = 0; p < quantidadeCarros; p++) {
             if (carros[p].getmarca().equalsIgnoreCase(filtro)) {
-                System.out.println(carros[p].getmodelo());
+                System.out.println(carros[p].toString());
                 encontrouCarro = true;
             }
         }
         if (!encontrouCarro) {
             System.out.println("Nenhum carro dessa marca encontrado.");
         }
-        System.out.println("-----------------------------");
 
         if (quantidadeCarros > 0) {
             float media = somapreco / quantidadeCarros;
-            System.out.println("Media dos precos: " + media);
-            System.out.println("-----------------------------");
+            System.out.println("\nMedia dos precos: " + media);
         } else {
-            System.out.println("Nenhum carro para calcular a media");
-            System.out.println("-----------------------------");
+            System.out.println("\nNenhum carro para calcular a media");
         }
 
-        System.out.print("Digite a partir de qual ano gostaria de ver os carros: ");
+        System.out.print("\nDigite a partir de qual ano gostaria de ver os carros: ");
         int filtro_ano = scanner.nextInt();
         int apos_o_ano = 0;
         for (int l = 0; l < quantidadeCarros; l++) {
@@ -126,9 +126,7 @@ class Principal {
             }
         }
 
-        System.out.println("\n");
-
-        System.out.println("Quantidade de carros depois de " + filtro_ano + ": " + apos_o_ano +"\n");
+        System.out.println("\nQuantidade de carros depois de " + filtro_ano + ": " + apos_o_ano + "\n");
 
         int soma_depois_do_ano = 0;
         for (int j = 0; j < quantidadeCarros; j++) {
@@ -140,10 +138,32 @@ class Principal {
         if (apos_o_ano > 0) {
             float media_pos_ano = soma_depois_do_ano / apos_o_ano;
             System.out.println("Média de preços dos carros a partir de " + filtro_ano + ": " + media_pos_ano);
-            System.out.println("-----------------------------");
         } else {
             System.out.println("Nenhum carro a partir do ano especificado para calcular a média.");
-            System.out.println("-----------------------------");
+        }
+
+        System.out.print("\nDigite o ano inicial do intervalo: ");
+        int anoInicial = scanner.nextInt();
+
+        System.out.print("Digite o ano final do intervalo: ");
+        int anoFinal = scanner.nextInt();
+
+        int quantidade_dentro_do_intervalo = 0;
+        int soma_dentro_do_intervalo = 0;
+
+        for (int k = 0; k < quantidadeCarros; k++) {
+            int anoCarro = carros[k].getano();
+            if (anoCarro >= anoInicial && anoCarro <= anoFinal) {
+                quantidade_dentro_do_intervalo++;
+                soma_dentro_do_intervalo += carros[k].getpreco();
+            }
+        }
+
+        if (quantidade_dentro_do_intervalo > 0) {
+            float media_intervalo = (float) soma_dentro_do_intervalo / quantidade_dentro_do_intervalo;
+            System.out.println("Média de preços dos carros do ano " + anoInicial + " ao ano " + anoFinal + ": " + media_intervalo);
+        } else {
+            System.out.println("Nenhum carro dentro do intervalo de anos especificado para calcular a média.");
         }
 
         scanner.close();
