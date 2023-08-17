@@ -1,3 +1,3 @@
-#Codigos em C
+# Codigos em C
 
-- **Codigos feitos em C**
+- ** Codigos feitos em C **
