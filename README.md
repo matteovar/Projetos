@@ -17,8 +17,4 @@ Esses códigos foram feitos para testar o conhecimento em Java/C
 - Java
 - C
 
-## Iniciazar
-
-1. Clone o repositório com o seguinte comando:\
-`git clone git@github.com:matteovar/Projetos.git`
 
