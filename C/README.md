@@ -1,3 +1,3 @@
 # Codigos em C
 
-- Exercicios de Recursividade
+- **Projetos que fiz em C**
