@@ -1,2 +1,3 @@
-# fdc
-fdcfdcfdcfdcfdcfdc
+#Codigos em C
+
+- **Codigos feitos em C**
