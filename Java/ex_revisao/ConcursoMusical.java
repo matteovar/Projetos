@@ -1,4 +1,4 @@
-package Concurso;
+package ex_revisao;
 import java.util.Scanner;
 
 

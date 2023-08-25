@@ -1,4 +1,4 @@
-package Avaliacao;
+package ex_revisao;
 
 
 class Avaliacao{

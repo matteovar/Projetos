@@ -1,4 +1,4 @@
-package Carro;
+package ex_revisao;
 
 
 class automovel {
