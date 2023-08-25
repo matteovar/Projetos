@@ -30,6 +30,8 @@ public class Principal {
             System.out.println(veiculo);
         }
         
+        System.out.println("\n################### -#- ###################");
+        
         System.out.println("\nVeiculos com 5 passageiros e mais antigo que 2010: ");
 
         for (VeiculoTerrestre veiculo : veiculos) {
@@ -40,12 +42,15 @@ public class Principal {
                 }
             }
         }
+
+        System.out.println("\n################### -#- ###################");
+
         int somacaminhoes = 0;
 
         for (VeiculoTerrestre veiculo : veiculos) {
             if (veiculo instanceof Caminhao) {
                 Caminhao caminhao = (Caminhao) veiculo;
-                if (caminhao.getcor().equalsIgnoreCase("Verde") && caminhao.gettotalDeEixos() == 4) {
+                if (caminhao.getcor().equals("Verde") && caminhao.gettotalDeEixos() == 4) {
                     somacaminhoes++;
                 }
             }

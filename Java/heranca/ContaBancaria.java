@@ -2,7 +2,7 @@ package heranca;
     public class ContaBancaria{
         private String cliente;
         private int nroConta;
-        public float saldo;
+        protected float saldo;
 
         
         public ContaBancaria(String cliente, int nroConta, float saldo){
