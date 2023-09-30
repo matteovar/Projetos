@@ -1,0 +1,22 @@
+O codigo vai a transferencia de uma cada a outra usando threads
+
+
+Ele declara uma função transferencia que recebe um ponteiro.
+
+Esse ponteiro armazena o número da thread e a direção da transferência 
+
+Dentro da função, o mutex é travado pelo lock para garantir para que uma thread execute por vez 
+
+depois, a thread olha a direção que que foi digitada, para saber se é uma transferência do banco 1 para o 2, ou do 2 para o 1.
+
+Se digitar 1, a thread verifica se o saldo da conta 1 é maior ou igual ao valor da transferência. Se sim, tira da conta 1 e deposita na conta 2
+
+Se digitar 2, ela(thread) faz o inverso - verifica saldo da conta 2, debita da 2 e credita na 1.
+
+No final, a thread é libera o mutex para que às outras threads possam acessar a secao critica 
+
+E por fim, cada thread termina a execução dela
+
+E é assim que cada thread faz com que as transferências aconteçam de forma segura e ordenada
+
+
